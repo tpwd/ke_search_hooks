@@ -1,5 +1,12 @@
 master
 
+Upcoming version
+[!!!]     This is the version for ke_search version 4. (The namespace of ke_search has changed in version 4.)
+[TASK]    Change namespace (for composer to tpwd, for classes to Tpwd)
+[TASK]    Require ke_search 4.0.0
+[TASK]    Use tpwd namespace for ke_search classes
+[TASK]    Update dependencies in composer.json
+
 Version 3.4.0, September 2021
 [!!!]     The namespace of ke_search has changed in version 4. Please use tpwd/ke_search_hooks if you use ke_search version 4 or higher.
 [TASK]    Mark extension as abandoned in composer.json.

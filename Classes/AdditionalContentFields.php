@@ -1,11 +1,11 @@
 <?php
 // Set you own vendor name.
 // Adjust the extension name part of the namespace to your extension key.
-namespace TeaminmediasPluswerk\KeSearchHooks;
+namespace Tpwd\KeSearchHooks;
 
 /**
  * Class AdditionalContentFields
- * @package TeaminmediasPluswerk\KeSearchHooks
+ * @package Tpwd\KeSearchHooks
  *
  * This class is an example on how to index more fields of the tt_content table without having to write a custom
  * indexer. The default page indexer is used. Two hooks are needed: One adds the field to the list of fields

@@ -1,7 +1,7 @@
 <?php
 /***************************************************************
  *  Copyright notice
- *  (c) 2012 Christian Bülter (kennziffer.com) <buelter@kennziffer.com>
+ *  (c) 2012 Christian Bülter
  *  All rights reserved
  *  This script is part of the TYPO3 project. The TYPO3 project is
  *  free software; you can redistribute it and/or modify
@@ -25,36 +25,36 @@ if (!defined("TYPO3_MODE")) {
 // Adjust this to your namespace and class name.
 // Adjust the autoloading information in composer.json, too!
 $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['ke_search']['registerIndexerConfiguration'][] =
-    \TeaminmediasPluswerk\KeSearchHooks\ExampleIndexer::class;
+    \Tpwd\KeSearchHooks\ExampleIndexer::class;
 $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['ke_search']['customIndexer'][] =
-    \TeaminmediasPluswerk\KeSearchHooks\ExampleIndexer::class;
+    \Tpwd\KeSearchHooks\ExampleIndexer::class;
 
 // Register hooks for indexing additional fields.
 $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['ke_search']['modifyPageContentFields'][] =
-    \TeaminmediasPluswerk\KeSearchHooks\AdditionalContentFields::class;
+    \Tpwd\KeSearchHooks\AdditionalContentFields::class;
 $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['ke_search']['modifyContentFromContentElement'][] =
-    \TeaminmediasPluswerk\KeSearchHooks\AdditionalContentFields::class;
+    \Tpwd\KeSearchHooks\AdditionalContentFields::class;
 
 // Register hook to check if a content element should be indexed
 $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['ke_search']['contentElementShouldBeIndexed'][] =
-    \TeaminmediasPluswerk\KeSearchHooks\AdditionalContentFields::class;
+    \Tpwd\KeSearchHooks\AdditionalContentFields::class;
 
 // Register hook to add a custom autosuggest provider (ke_search_premium feature)
 $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['ke_search_premium']['modifyAutocompleWordList'][] =
-    \TeaminmediasPluswerk\KeSearchHooks\AutosuggestProvider::class;
+    \Tpwd\KeSearchHooks\AutosuggestProvider::class;
 
 // Register hook to add custom values to the result row partial
 $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['ke_search']['additionalResultMarker'][] =
-    \TeaminmediasPluswerk\KeSearchHooks\AdditionalResultMarker::class;
+    \Tpwd\KeSearchHooks\AdditionalResultMarker::class;
 
 // Register hook to change the sorting
 $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['ke_search']['getOrdering'][] =
-    \TeaminmediasPluswerk\KeSearchHooks\Ordering::class;
+    \Tpwd\KeSearchHooks\Ordering::class;
 
 // Register hook to register additional fields in the index table
 // Make sure to set the values for the additional fields in *every indexer* you use
 //$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['ke_search']['registerAdditionalFields'][] =
-    //\TeaminmediasPluswerk\KeSearchHooks\AdditionalIndexerFields::class;
+    //\Tpwd\KeSearchHooks\AdditionalIndexerFields::class;
 
 // Example for showing images of fe_users if you have implemented a fe_users indexer
 //$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['ke_search']['fileReferenceTypes']['fe_users']['table'] = 'fe_users';

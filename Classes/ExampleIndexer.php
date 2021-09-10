@@ -1,10 +1,10 @@
 <?php
 // Set you own vendor name.
 // Adjust the extension name part of the namespace to your extension key.
-namespace TeaminmediasPluswerk\KeSearchHooks;
+namespace Tpwd\KeSearchHooks;
 
-use TeaminmediasPluswerk\KeSearch\Indexer\IndexerBase;
-use TeaminmediasPluswerk\KeSearch\Indexer\IndexerRunner;
+use Tpwd\KeSearch\Indexer\IndexerBase;
+use Tpwd\KeSearch\Indexer\IndexerRunner;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;

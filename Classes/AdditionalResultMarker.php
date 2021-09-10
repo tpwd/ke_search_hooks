@@ -1,8 +1,8 @@
 <?php
-namespace TeaminmediasPluswerk\KeSearchHooks;
+namespace Tpwd\KeSearchHooks;
 
 use Doctrine\DBAL\FetchMode;
-use TeaminmediasPluswerk\KeSearch\Plugins\ResultlistPlugin;
+use Tpwd\KeSearch\Plugins\ResultlistPlugin;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -10,7 +10,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  * Class AdditionalResulMarker
  * Provides additional information in the ResultRow partial
  *
- * @package TeaminmediasPluswerk\KeSearchHooks
+ * @package Tpwd\KeSearchHooks
  */
 class AdditionalResultMarker {
 

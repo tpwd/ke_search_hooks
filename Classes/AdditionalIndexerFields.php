@@ -1,9 +1,9 @@
 <?php
-namespace TeaminmediasPluswerk\KeSearchHooks;
+namespace Tpwd\KeSearchHooks;
 
 /**
  * Class AdditionalIndexerFields
- * @package TeaminmediasPluswerk\KeSearchHooks
+ * @package Tpwd\KeSearchHooks
  */
 class AdditionalIndexerFields {
     public function registerAdditionalFields(&$additionalFields) {
