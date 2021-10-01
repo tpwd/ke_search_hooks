@@ -1,6 +1,6 @@
 master
 
-Upcoming version
+Version 4.0.0, October 2021
 [!!!]     This is the version for ke_search version 4. (The namespace of ke_search has changed in version 4.)
 [TASK]    Change namespace (for composer to tpwd, for classes to Tpwd)
 [TASK]    Require ke_search 4.0.0
