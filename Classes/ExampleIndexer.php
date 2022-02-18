@@ -55,6 +55,10 @@ class ExampleIndexer extends IndexerBase
             /** @var Connection $connection */
             $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable($table);
             $queryBuilder = $connection->createQueryBuilder();
+
+            if (!isset($indexerConfig['sysfolder'])|| empty($indexerConfig['sysfolder'])) {
+                throw new \Exception('No folder specified. Please set the folder which should be indexed in the indexer configuration!');
+            }
             
             // Handle restrictions.
             // Don't fetch hidden or deleted elements, but the elements
@@ -75,13 +79,13 @@ class ExampleIndexer extends IndexerBase
 
             // Loop through the records and write them to the index.
             $counter = 0;
-                
+
             while ($record = $statement->fetch()) {
                 // Compile the information, which should go into the index.
                 // The field names depend on the table you want to index!
-                $title    = strip_tags($record['title']);
-                $abstract = strip_tags($record['teaser']);
-                $content  = strip_tags($record['bodytext']);
+                $title    = strip_tags($record['title'] ?? '');
+                $abstract = strip_tags($record['teaser'] ?? '');
+                $content  = strip_tags($record['bodytext'] ?? '');
 
                 $fullContent = $title . "\n" . $abstract . "\n" . $content;
 
