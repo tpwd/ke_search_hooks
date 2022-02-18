@@ -4,6 +4,7 @@ Upcoming version
 [!!!]     This version drops support for TYPO3 9
 [TASK]    Make extension compatible with TYPO3 11
 [BUGFIX]  Fix PHP 8 issues
+[TASK]    Move icon for example custom indexer
 
 Version 4.0.0, October 2021
 [!!!]     This is the version for ke_search version 4. (The namespace of ke_search has changed in version 4.)

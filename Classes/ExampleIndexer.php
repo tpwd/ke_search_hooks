@@ -34,7 +34,7 @@ class ExampleIndexer extends IndexerBase
         $customIndexer = array(
             '[CUSTOM] News-Indexer (ext:news)',
             ExampleIndexer::KEY,
-            'EXT:ke_search_hooks/customnews-indexer-icon.gif'
+            'EXT:ke_search_hooks/Resources/Public/Icons/customnews-indexer-icon.gif'
         );
         $params['items'][] = $customIndexer;
     }
