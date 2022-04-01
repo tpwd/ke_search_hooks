@@ -1,5 +1,8 @@
 master
 
+Upcoming version
+[FEATURE] Add example for hook modifyFieldValuesBeforeStoring, in this case index "keywords" of EXT:filemetadata
+
 Version 4.1.0, February 2022
 [!!!]     This version drops support for TYPO3 9
 [TASK]    Make extension compatible with TYPO3 11

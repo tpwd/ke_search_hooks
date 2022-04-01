@@ -51,6 +51,10 @@ if (!defined("TYPO3")) {
     $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['ke_search']['getOrdering'][] =
         \Tpwd\KeSearchHooks\Ordering::class;
 
+    // Register hook to modify the values of the record which will be stored in the index
+    $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['ke_search']['modifyFieldValuesBeforeStoring'][] =
+        \Tpwd\KeSearchHooks\modifyFieldValuesBeforeStoring::class;
+
     // Register hook to register additional fields in the index table
     // Make sure to set the values for the additional fields in *every indexer* you use
     //$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['ke_search']['registerAdditionalFields'][] =
