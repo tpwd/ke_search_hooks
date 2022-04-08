@@ -3,6 +3,7 @@
 namespace Tpwd\KeSearchHooks;
 
 use Tpwd\KeSearch\Indexer\IndexerBase;
+use TYPO3\CMS\Core\Resource\Exception\FileDoesNotExistException;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -22,10 +23,13 @@ class modifyFieldValuesBeforeStoring
             && isset($fieldValues['orig_uid'])
         ) {
             $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
-            $file = $resourceFactory->getFileObject($fieldValues['orig_uid']);
-            $metadata = $file->getMetaData();
-            if (isset($metadata['keywords']) && !empty($metadata['keywords'])) {
-                $fieldValues['content'] = $metadata['keywords'] . IndexerBase::METADATASEPARATOR . $fieldValues['content'];
+            try {
+                $file = $resourceFactory->getFileObject($fieldValues['orig_uid']);
+                $metadata = $file->getMetaData();
+                if (isset($metadata['keywords']) && !empty($metadata['keywords'])) {
+                    $fieldValues['content'] = $metadata['keywords'] . IndexerBase::METADATASEPARATOR . $fieldValues['content'];
+                }
+            } catch (FileDoesNotExistException $e) {
             }
         }
         return $fieldValues;
