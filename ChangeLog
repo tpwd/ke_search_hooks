@@ -2,6 +2,7 @@ master
 
 Upcoming version
 [FEATURE] Add example for hook modifyFieldValuesBeforeStoring, in this case index "keywords" of EXT:filemetadata
+[FEATURE] Add example for custom filter renderer
 
 Version 4.1.0, February 2022
 [!!!]     This version drops support for TYPO3 9

@@ -1,0 +1,9 @@
+<fieldset>
+	<legend>Custom filter</legend>
+	<div id="{filter.id}">
+		<f:for each="{filter.options}" as="option">
+			<input type="radio" name="{filter.name}" value="{option.value}" {f:if(condition: '{option.selected}', then: 'checked')} />
+			{option.title}<f:if condition="{option.selected} == ''"><f:if condition="{filter.shownumberofresults} && {option.results}"> ({option.results})</f:if></f:if><br />
+		</f:for>
+	</div>
+</fieldset>
