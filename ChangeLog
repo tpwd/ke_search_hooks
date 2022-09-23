@@ -1,6 +1,6 @@
-master
+ChangeLog for ke_search_hooks
 
-Upcoming version
+Version 4.2.0, September 2022
 [FEATURE] Add example for hook modifyFieldValuesBeforeStoring, in this case index "keywords" of EXT:filemetadata
 [FEATURE] Add example for custom filter renderer
 
