@@ -55,8 +55,9 @@ if (!defined("TYPO3")) {
     $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['ke_search']['modifyFieldValuesBeforeStoring'][] =
         \Tpwd\KeSearchHooks\modifyFieldValuesBeforeStoring::class;
 
-    $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['ke_search']['customFilterRenderer'][] =
-        \Tpwd\KeSearchHooks\ExampleFilterRenderer::class;
+    // Register hook for a custom renderer
+    //$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['ke_search']['customFilterRenderer'][] =
+        //\Tpwd\KeSearchHooks\ExampleFilterRenderer::class;
 
     // Register hook to register additional fields in the index table
     // Make sure to set the values for the additional fields in *every indexer* you use
