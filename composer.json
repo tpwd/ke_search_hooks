@@ -8,16 +8,28 @@
     }
   },
   "require": {
-    "typo3/cms-core": "^10.4 || ^11.5",
-    "tpwd/ke_search" : "^4.3"
+    "tpwd/ke_search" : "^5"
+  },
+  "require-dev": {
+    "phpstan/phpstan": "^1.8",
+    "friendsofphp/php-cs-fixer": "^3.27"
   },
   "extra": {
     "typo3/cms": {
-      "extension-key": "ke_search_hooks"
+      "extension-key": "ke_search_hooks",
+      "web-dir": ".Build/web"
     }
   },
   "replace": {
     "typo3-ter/ke_search_hooks": "self.version",
     "teaminmedias-pluswerk/ke_search_hooks": "self.version"
+  },
+  "config": {
+    "allow-plugins": {
+      "typo3/class-alias-loader": true,
+      "typo3/cms-composer-installers": true
+    },
+    "bin-dir": ".Build/bin",
+    "vendor-dir": ".Build/vendor"
   }
 }

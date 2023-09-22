@@ -1,6 +1,8 @@
 ChangeLog for ke_search_hooks
 
 Upcoming version
+[!!!]     This version drops support for TYPO3 10
+[TASK]    Make extension installable with TYPO3 12
 [TASK]    Disable (not remove) the registration of the example custom filter renderer to keep the default renderer for select filters intact by default.
 
 Version 4.2.0, September 2022
