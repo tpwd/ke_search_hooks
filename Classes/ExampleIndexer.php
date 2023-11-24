@@ -50,16 +50,16 @@ class ExampleIndexer extends IndexerBase
     {
         if ($indexerConfig['type'] == ExampleIndexer::KEY) {
             $table = 'tx_news_domain_model_news';
-            
+
             // Doctrine DBAL using Connection Pool.
             /** @var Connection $connection */
             $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable($table);
             $queryBuilder = $connection->createQueryBuilder();
 
-            if (!isset($indexerConfig['sysfolder'])|| empty($indexerConfig['sysfolder'])) {
+            if (empty($indexerConfig['sysfolder'])) {
                 throw new \Exception('No folder specified. Please set the folder which should be indexed in the indexer configuration!');
             }
-            
+
             // Handle restrictions.
             // Don't fetch hidden or deleted elements, but the elements
             // with frontend user group access restrictions or time (start / stop)
@@ -75,12 +75,12 @@ class ExampleIndexer extends IndexerBase
                 ->select('*')
                 ->from($table)
                 ->where($queryBuilder->expr()->in( 'pid', $folders))
-                ->execute();
+                ->executeQuery();
 
             // Loop through the records and write them to the index.
             $counter = 0;
 
-            while ($record = $statement->fetch()) {
+            while ($record = $statement->fetchAssociative()) {
                 // Compile the information, which should go into the index.
                 // The field names depend on the table you want to index!
                 $title    = strip_tags($record['title'] ?? '');
@@ -107,8 +107,11 @@ class ExampleIndexer extends IndexerBase
                 // set custom sorting
                 $additionalFields['mysorting'] = $counter;
 
-                // Add something to the title, just to identify the entries
-                // in the frontend.
+                // You may optionally set "hidden content". Hidden content is included in the search but not shown
+                // in the frontend result list.
+                //$additionalFields['hidden_content'] = 'Lorem ipsum' . $record['uid'];
+
+                // Add something to the title, just to identify the records in the frontend.
                 $title = '[CUSTOM INDEXER] ' . $title;
 
                 // ... and store the information in the index
@@ -128,7 +131,7 @@ class ExampleIndexer extends IndexerBase
                     false,                          // debug only?
                     $additionalFields               // additionalFields
                 );
-                
+
                 $counter++;
             }
 
