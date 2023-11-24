@@ -11,24 +11,27 @@ namespace Tpwd\KeSearchHooks;
  * indexer. The default page indexer is used. Two hooks are needed: One adds the field to the list of fields
  * fetched from the tt_content table, the other one adds the field to the content written to the index.
  *
+ * Additionally, the function contentElementShouldBeIndexed shows how to add custom check if a specific content
+ * element should be indexed at all.
+ *
  * See also ext_localconf.php on how to register the hooks.
  */
 
 class AdditionalContentFields {
 
-    public function modifyPageContentFields(&$fields, $pageIndexer)
+    public function modifyPageContentFields(&$fields, $pageIndexer): void
     {
         // Add the field "subheader" from the tt_content table, which is normally not indexed, to the list of fields.
         $fields .= ",subheader";
     }
 
-    public function modifyContentFromContentElement(string &$bodytext, array $ttContentRow, $pageIndexer)
+    public function modifyContentFromContentElement(string &$bodytext, array $ttContentRow, $pageIndexer): void
     {
         // Add the content of the field "subheader" to $bodytext, which is, what will be saved to the index.
         $bodytext .= strip_tags($ttContentRow['subheader']);
     }
 
-    public function contentElementShouldBeIndexed($ttContentRow, $contentElementShouldBeIndexed, $pObj)
+    public function contentElementShouldBeIndexed($ttContentRow, $contentElementShouldBeIndexed, $pObj): bool
     {
         //debug($ttContentRow);
         return $contentElementShouldBeIndexed;
