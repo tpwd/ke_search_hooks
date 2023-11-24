@@ -12,7 +12,7 @@ $EM_CONF[$_EXTKEY] = array(
     'author_company' => 'TPWD AG',
     'constraints' => array(
         'depends' => array(
-            'typo3' => '10.4.0-11.5.99',
+            'typo3' => '11.5.0-12.4.99',
         ),
         'conflicts' => array(),
         'suggests' => array(),
