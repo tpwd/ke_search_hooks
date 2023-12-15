@@ -17,16 +17,15 @@ class AutosuggestProvider {
         /** @var ConnectionPool $connectionPool */
         $connectionPool = GeneralUtility::makeInstance(ConnectionPool::class);
         $queryBuilder = $connectionPool->getQueryBuilderForTable('pages');
-        $queryBuilder
+        $pages = $queryBuilder
             ->select('title')
             ->from('pages')
             ->where(
                 $queryBuilder->expr()->like('title', $queryBuilder->createNamedParameter($queryBuilder->escapeLikeWildcards($begin) . '%'))
             )
             ->setMaxResults(10)
-            ->execute()
-            ->fetchAll();
-        $pages = $queryBuilder->execute()->fetchAll();
+            ->executeQuery()
+            ->fetchAllAssociative();
         if ($pages) {
             $words = [];
             foreach ($pages as $page) {

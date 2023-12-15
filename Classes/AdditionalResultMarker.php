@@ -31,8 +31,8 @@ class AdditionalResultMarker {
                 ->where(
                     $queryBuilder->expr()->like('uid', $queryBuilder->createNamedParameter($row['orig_uid'], \PDO::PARAM_INT))
                 )
-                ->execute()
-                ->fetch(FetchMode::ASSOCIATIVE);
+                ->executeQuery()
+                ->fetchAssociative();
             if ($newsRecord) {
                 $tempMarkerArray['author'] = $newsRecord['author'];
             }

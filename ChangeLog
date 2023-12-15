@@ -1,5 +1,8 @@
 ChangeLog for ke_search_hooks
 
+Upcoming version
+[TASK]    Migrate query builder calls
+
 Version 5.0.0, November 2022
 [!!!]     This version drops support for TYPO3 10
 [TASK]    Make extension installable with TYPO3 12
