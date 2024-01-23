@@ -49,7 +49,7 @@ class ExampleIndexer extends IndexerBase
     public function customIndexer(array &$indexerConfig, IndexerRunner &$indexerObject): string
     {
         if ($indexerConfig['type'] == ExampleIndexer::KEY) {
-            $table = 'tx_news_domain_model_news';
+            $table = ExampleIndexer::KEY;
 
             // Doctrine DBAL using Connection Pool.
             /** @var Connection $connection */
@@ -101,7 +101,7 @@ class ExampleIndexer extends IndexerBase
                 $additionalFields = array(
                     'orig_uid' => $record['uid'],
                     'orig_pid' => $record['pid'],
-                    'sortdate' => $record['datetime'],
+                    //'sortdate' => $record['datetime'],
                 );
 
                 // set custom sorting
@@ -127,7 +127,7 @@ class ExampleIndexer extends IndexerBase
                     $record['sys_language_uid'],    // language uid
                     $record['starttime'],           // starttime
                     $record['endtime'],             // endtime
-                    $record['fe_group'],            // fe_group
+                    $record['fe_group'] ?? '',            // fe_group
                     false,                          // debug only?
                     $additionalFields               // additionalFields
                 );
