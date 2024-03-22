@@ -172,10 +172,13 @@ class ExampleIndexer extends IndexerBase
      */
     public function startIncrementalIndexing(array $indexerConfig, IndexerRunner $indexerObject): string
     {
-        $this->indexingMode = self::INDEXING_MODE_INCREMENTAL;
-        $content = $this->customIndexer($indexerConfig, $indexerObject);
-        $content .= $this->removeDeleted($indexerConfig, self::TABLE);
-        return $content;
+        if ($indexerConfig['type'] == ExampleIndexer::KEY) {
+            $this->indexingMode = self::INDEXING_MODE_INCREMENTAL;
+            $content = $this->customIndexer($indexerConfig, $indexerObject);
+            $content .= $this->removeDeleted($indexerConfig, self::TABLE);
+            return $content;
+        }
+        return '';
     }
 
     /**
