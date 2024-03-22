@@ -54,6 +54,10 @@ class ExampleIndexer extends IndexerBase
     public function customIndexer(array $indexerConfig, IndexerRunner $indexerObject): string
     {
         if ($indexerConfig['type'] == ExampleIndexer::KEY) {
+            // Get the indexer status service if available (since ke_search 5.4.0)
+            if (class_exists('\Tpwd\KeSearch\Service\IndexerStatusService')) {
+                $indexerStatusService = GeneralUtility::makeInstance(\Tpwd\KeSearch\Service\IndexerStatusService::class);
+            }
             /** @var Connection $connection */
             $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable(self::TABLE);
             $queryBuilder = $connection->createQueryBuilder();
@@ -82,7 +86,7 @@ class ExampleIndexer extends IndexerBase
                 $where[] = $queryBuilder->expr()->gte('tstamp', $this->lastRunStartTime);
             }
 
-            $statement = $queryBuilder
+            $query = $queryBuilder
                 ->select('*')
                 ->from(self::TABLE)
                 ->where(...$where)
@@ -90,8 +94,11 @@ class ExampleIndexer extends IndexerBase
 
             // Loop through the records and write them to the index.
             $counter = 0;
-
-            while ($record = $statement->fetchAssociative()) {
+            $totalCount = $query->rowCount();
+            while ($record = $query->fetchAssociative()) {
+                if (isset($indexerStatusService)) {
+                    $indexerStatusService->setRunningStatus($indexerConfig, $counter, $totalCount);
+                }
                 // Compile the information, which should go into the index.
                 // The field names depend on the table you want to index!
                 $title    = strip_tags($record['title'] ?? '');
