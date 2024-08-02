@@ -58,6 +58,7 @@ class ExampleIndexer extends IndexerBase
             if (class_exists('\Tpwd\KeSearch\Service\IndexerStatusService')) {
                 $indexerStatusService = GeneralUtility::makeInstance(\Tpwd\KeSearch\Service\IndexerStatusService::class);
             }
+
             /** @var Connection $connection */
             $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable(self::TABLE);
             $queryBuilder = $connection->createQueryBuilder();
@@ -121,7 +122,7 @@ class ExampleIndexer extends IndexerBase
                 $additionalFields = array(
                     'orig_uid' => $record['uid'],
                     'orig_pid' => $record['pid'],
-                    'sortdate' => $record['datetime'],
+                    'sortdate' => $record['datetime'] ?? 0,
                 );
 
                 // set custom sorting
@@ -147,7 +148,7 @@ class ExampleIndexer extends IndexerBase
                     $record['sys_language_uid'],    // language uid
                     $record['starttime'],           // starttime
                     $record['endtime'],             // endtime
-                    $record['fe_group'],            // fe_group
+                    $record['fe_group'] ?? '',      // fe_group
                     false,                          // debug only?
                     $additionalFields               // additionalFields
                 );
