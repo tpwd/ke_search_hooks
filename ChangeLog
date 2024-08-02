@@ -1,9 +1,10 @@
 ChangeLog for ke_search_hooks
 
-Upcoming version
+Version 5.1.0, 2 August 2024
 [FEATURE] Add incremental indexing to ExampleIndexer, https://github.com/tpwd/ke_search_hooks/issues/1
 [TASK]    Migrate query builder calls
 [TASK]    Support indexer status in ExampleIndexer
+[TASK]    Remove obsolete $table variable, set default values, thanks to Stephan Bauer, https://github.com/tpwd/ke_search_hooks/pull/4/
 
 Version 5.0.0, November 2022
 [!!!]     This version drops support for TYPO3 10
