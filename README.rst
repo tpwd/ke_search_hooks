@@ -27,8 +27,10 @@ The hooks are registered in the file `ext_localconf.php` and point to the PHP
 class which implements the function itself.
 
 * Custom Indexer: Indexes records from the extension "News" (ext:news)
-* Hook for addtional content fields: Indexes additional fields from the
-  tt_content table, e.g. the subheader
+* Hook for additional content fields: Indexes additional fields from the
+  tt_content table, e.g. the subheader. Not necessary anymore because you can
+  set the fields which should be indexed in the indexer configugration
+  ("tt_content fields which should be indexed")
 * Hook for a check if a content element should be indexed at all
 * Hook to add a custom autosuggest provider (ke_search_premium feature)
 * Hook to add custom values to the result row partial
