@@ -5,7 +5,7 @@ $EM_CONF[$_EXTKEY] = array(
     'title' => 'Faceted Search Hooks Example',
     'description' => 'Hooks example for ke_search. Feel free to use this as a kickstarter for your own custom indexer or hooks. Implements a news indexer as example.',
     'category' => 'backend',
-    'version' => '5.1.0',
+    'version' => '6.0.0',
     'dependencies' => 'ke_search',
     'state' => 'stable',
     'author' => 'ke_search Dev Team',
@@ -13,7 +13,7 @@ $EM_CONF[$_EXTKEY] = array(
     'author_company' => 'TPWD AG',
     'constraints' => array(
         'depends' => array(
-            'typo3' => '11.5.0-12.4.99',
+            'typo3' => '12.4.0-14.99.99',
         ),
         'conflicts' => array(),
         'suggests' => array(),
