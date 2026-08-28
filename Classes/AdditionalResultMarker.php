@@ -1,6 +1,7 @@
 <?php
 namespace Tpwd\KeSearchHooks;
 
+use Doctrine\DBAL\ParameterType;
 use Tpwd\KeSearch\Plugins\ResultlistPlugin;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -28,7 +29,7 @@ class AdditionalResultMarker {
                 ->select('author')
                 ->from('tx_news_domain_model_news')
                 ->where(
-                    $queryBuilder->expr()->like('uid', $queryBuilder->createNamedParameter($row['orig_uid'], \PDO::PARAM_INT))
+                    $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['orig_uid'], ParameterType::INTEGER))
                 )
                 ->executeQuery()
                 ->fetchAssociative();
