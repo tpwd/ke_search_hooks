@@ -1,5 +1,12 @@
 ChangeLog for ke_search_hooks
 
+Version 6.0.0, 28 August 2026
+[!!!]     This version drops support for TYPO3 11
+[TASK]    Make extension compatible with TYPO3 13 and 14
+[TASK]    Require ke_search 6 or 7
+[TASK]    Adjust ExampleFilterRenderer to use Tpwd\KeSearch\Plugins\PluginBase instead of the removed Tpwd\KeSearch\Lib\Pluginbase
+[TASK]    Remove obsolete Doctrine\DBAL\FetchMode import
+
 Version 5.1.0, 2 August 2024
 [FEATURE] Add incremental indexing to ExampleIndexer, https://github.com/tpwd/ke_search_hooks/issues/1
 [TASK]    Migrate query builder calls

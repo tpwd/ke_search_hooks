@@ -1,7 +1,6 @@
 <?php
 namespace Tpwd\KeSearchHooks;
 
-use Doctrine\DBAL\FetchMode;
 use Tpwd\KeSearch\Plugins\ResultlistPlugin;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Utility\GeneralUtility;

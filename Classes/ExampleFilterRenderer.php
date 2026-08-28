@@ -2,7 +2,7 @@
 
 namespace Tpwd\KeSearchHooks;
 
-use Tpwd\KeSearch\Lib\Pluginbase;
+use Tpwd\KeSearch\Plugins\PluginBase;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Fluid\View\StandaloneView;
 
@@ -11,7 +11,7 @@ use TYPO3\CMS\Fluid\View\StandaloneView;
  */
 class ExampleFilterRenderer
 {
-    public function customFilterRenderer(int $filterUid, array $options, Pluginbase $plugin, array &$filterData)
+    public function customFilterRenderer(int $filterUid, array $options, PluginBase $plugin, array &$filterData)
     {
         if ($filterData['rendertype'] == 'select') {
             /** @var StandaloneView $view */
