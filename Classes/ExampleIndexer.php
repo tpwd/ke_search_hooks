@@ -7,6 +7,7 @@ use PDO;
 use Tpwd\KeSearch\Domain\Repository\IndexRepository;
 use Tpwd\KeSearch\Indexer\IndexerBase;
 use Tpwd\KeSearch\Indexer\IndexerRunner;
+use Tpwd\KeSearch\Utility\ContentUtility;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
@@ -102,9 +103,9 @@ class ExampleIndexer extends IndexerBase
                 }
                 // Compile the information, which should go into the index.
                 // The field names depend on the table you want to index!
-                $title    = strip_tags($record['title'] ?? '');
-                $abstract = strip_tags($record['teaser'] ?? '');
-                $content  = strip_tags($record['bodytext'] ?? '');
+                $title    = ContentUtility::getPlainContentFromContentRow($record, 'title');
+                $abstract = ContentUtility::getPlainContentFromContentRow($record, 'teaser');
+                $content  = ContentUtility::getPlainContentFromContentRow($record, 'bodytext');
 
                 $fullContent = $title . "\n" . $abstract . "\n" . $content;
 
