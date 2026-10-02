@@ -1,5 +1,8 @@
 ChangeLog for ke_search_hooks
 
+Version 6.0.1, 2 October 2026
+[TASK]    Release new version to fix packagist blocking due to re-tagging of version 6.0.0
+
 Version 6.0.0, 18 September 2026
 [!!!]     This version drops support for TYPO3 11
 [TASK]    Make extension compatible with TYPO3 13 and 14

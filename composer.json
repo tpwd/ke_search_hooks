@@ -20,7 +20,11 @@
 	"extra": {
 		"typo3/cms": {
 			"extension-key": "ke_search_hooks",
-			"web-dir": ".Build/web"
+			"web-dir": ".Build/web",
+			"version": "6.0.1",
+			"Package": {
+				"providesPackages": {}
+			}
 		}
 	},
 	"replace": {
